@@ -1,0 +1,54 @@
+﻿@page
+@model RecruitCatYadavha.Pages.JobTitles.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>JobTitle</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="JobTitle.Title" class="control-label"></label>
+                <input asp-for="JobTitle.Title" class="form-control" />
+                <span asp-validation-for="JobTitle.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobTitle.MinimumSalary" class="control-label"></label>
+                <input asp-for="JobTitle.MinimumSalary" class="form-control" />
+                <span asp-validation-for="JobTitle.MinimumSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobTitle.MaximumSalary" class="control-label"></label>
+                <input asp-for="JobTitle.MaximumSalary" class="form-control" />
+                <span asp-validation-for="JobTitle.MaximumSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobTitle.NoOfPosition" class="control-label"></label>
+                <input asp-for="JobTitle.NoOfPosition" class="form-control" />
+                <span asp-validation-for="JobTitle.NoOfPosition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobTitle.DepartmentName" class="control-label"></label>
+                <input asp-for="JobTitle.DepartmentName" class="form-control" />
+                <span asp-validation-for="JobTitle.DepartmentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

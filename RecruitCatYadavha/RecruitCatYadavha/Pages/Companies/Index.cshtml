@@ -1,0 +1,78 @@
+﻿@page
+@model RecruitCatYadavha.Pages.Companies.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].PostionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].MinimumSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].MaximumSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].OptionalStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].Industry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].JobTitle)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Company) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinimumSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaximumSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OptionalStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Industry.IndustryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobTitle.JobTitleId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CompanyId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CompanyId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CompanyId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
