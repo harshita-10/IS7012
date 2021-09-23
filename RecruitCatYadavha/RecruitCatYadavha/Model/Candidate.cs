@@ -32,8 +32,10 @@ namespace RecruitCatYadavha.wwwroot.Model
         public DateTime? StartDate { get; set; }
 
         
-        [StringLength(9)]
+        
         [DisplayName("Social Security Number")]
+        [StringLength(11)]
+        [RegularExpression("^\\d{3}-?\\d{2}-?\\d{4}$")]
         public string SSN { get; set; }
         [DisplayName("Date of Birth")]
         [DataType(DataType.Date)]

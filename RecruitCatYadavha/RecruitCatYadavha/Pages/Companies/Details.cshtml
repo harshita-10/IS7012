@@ -8,7 +8,7 @@
 <h1>Company Details</h1>
 
 <div>
-    
+
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -61,9 +61,40 @@
         </dd>
     </dl>
 </div>
+
+@if (Model.Company.Candidates.Any() == false)
+{
+    <div class="alert alert-info">No bank account have been created. <a asp-page="/bankaccounts/create">You do not have Candidates</a></div> }
+else
+{
+    <h4>Bank Accounts</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Company.Candidates[0].FirstName)</th>
+                <th>@Html.DisplayNameFor(model => model.Company.Candidates[0].LastName)</th>
+                <th>@Html.DisplayNameFor(model => model.Company.Candidates[0].DateOfBirth)</th>
+                
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Company.Candidates)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DateOfBirth)</td>
+                   
+                    <td><a asp-page="/bankaccounts/create" asp-route-id="@item.CandidateId">Details</a></td>
+                </tr>
+}
+        </tbody>
+    </table>
+}
+
+
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Company.CompanyId">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
-
-
