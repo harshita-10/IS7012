@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Gtt.Uc.EntityFramework;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,9 +27,10 @@ namespace RecruitCatYadavha
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddGttMem <RecruitCatYadavhaContext>("7ca52450-59be-4896-a6d4-02273047e16e");
 
-            services.AddDbContext<RecruitCatYadavhaContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("RecruitCatYadavhaContext")));
+           // services.AddDbContext<RecruitCatYadavhaContext>(options =>
+            //        options.UseSqlServer(Configuration.GetConnectionString("RecruitCatYadavhaContext")));
 
             
         }

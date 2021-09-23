@@ -29,6 +29,7 @@ namespace RecruitCatYadavha.Pages.Companies
             }
 
             Company = await _context.Company
+                .Include(c=> c.Candidates)
                 .Include(c => c.Industry)
                 .Include(c => c.JobTitle).FirstOrDefaultAsync(m => m.CompanyId == id);
 

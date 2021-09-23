@@ -5,9 +5,9 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Edit Candidate</h1>
 
-<h4>Candidate</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -49,6 +49,7 @@
                 <input asp-for="Candidate.DateOfBirth" class="form-control" />
                 <span asp-validation-for="Candidate.DateOfBirth" class="text-danger"></span>
             </div>
+            
             <div class="form-group">
                 <label asp-for="Candidate.JobTitleId" class="control-label"></label>
                 <select asp-for="Candidate.JobTitleId" class="form-control" asp-items="ViewBag.JobTitleId"></select>
