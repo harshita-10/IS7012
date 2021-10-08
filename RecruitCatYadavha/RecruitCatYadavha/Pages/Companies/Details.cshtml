@@ -86,7 +86,7 @@ else
                     <td>@Html.DisplayFor(modelItem => item.LastName)</td>
                     <td>@Html.DisplayFor(modelItem => item.DateOfBirth)</td>
                    
-                    <td><a asp-page="/bankaccounts/create" asp-route-id="@item.CandidateId">Details</a></td>
+                    <td><a asp-page="./Details" asp-route-id="@item.CandidateId">Details</a></td>
                 </tr>
 }
         </tbody>

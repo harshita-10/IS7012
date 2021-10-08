@@ -1,0 +1,75 @@
+﻿@page
+@model DreamHome.Pages.Agents.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Agent Details @Model.Agent.AgentFirstName @Model.Agent.AgentLastName</h1>
+
+<div>
+    <h4>Agent</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Agent.FullName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Agent.FullName)
+        </dd>
+       
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Agent.AgentPhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Agent.AgentPhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Agent.BrokerageCost)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Agent.BrokerageCost)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Agent.SalesOffice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Agent.SalesOffice.OfficeName)
+        </dd>
+    </dl>
+</div>
+@if (Model.Agent.Apartments.Any() == false)
+{
+    <div class="alert alert-info">No Apartments have been created. <a asp-page="/Apartments/create">Create Apartments</a></div> }
+else
+{
+    <h4>Apartment Informtion</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Agent.Apartments[0].ApartmentName)</th>
+                <th>@Html.DisplayNameFor(model => model.Agent.Apartments[0].AvailableFrom)</th>
+                <th>@Html.DisplayNameFor(model => model.Agent.Apartments[0].MarketPrice)</th>
+                
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Agent.Apartments)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ApartmentName)</td>
+                <td>@Html.DisplayFor(modelItem => item.AvailableFrom)</td>
+                <td>@Html.DisplayFor(modelItem => item.MarketPrice)</td>
+
+                
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Agent.AgentId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

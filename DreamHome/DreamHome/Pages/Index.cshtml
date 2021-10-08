@@ -1,0 +1,119 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div>
+        <img alt="DreamHome.com" style="width:1100px;height:400px;"
+             src="~/images/Background.jpg">
+    </div>
+
+    <hr />
+    <!-- Three columns of text below the carousel -->
+    <!-- START THE FEATURETTES -->
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">Book Your Home confidence </h2>
+            <p class="lead">We know plans change, which is why we make sure those hard-earned funds are protected. With our 30-day refund program you can change your plans for any reason, or no reason at all and rest assured your money is protected.</p>
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" src="~/images/Sell.jpg" alt="House">
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Our commitment to Find your  <span class="text-muted"> Perfect Home</span></h2>
+            <p class="lead">Your Dream House is always our top priority. You can be stress-free as we will find you a perfect place to live</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img class="featurette-image img-fluid mx-auto" src="~/images/co.jpg" alt="Promise">
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">Latest Reviews. <span class="text-muted">Lowest Prices.</span></h2>
+            <p class="lead">Choose from our 1000 homes for sale available on our website that fit every pocket. Drop us an email to request particular property.</p>
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" src="~/images/Rent.jpg" alt="House">
+        </div>
+    </div>
+
+    <!-- /END THE FEATURETTES -->
+
+</div><!-- /.container -->
+<div class="row">
+    <div class="col-md-4 first">
+        <div class="card profile-card-2">
+            <div class="card-img-block">
+                <img class="img-fluid" src="~/images/Buy.jpg" alt="Buy" />
+            </div>
+            <div class="card-body pt-5">
+
+                @*<img src="~/images/81.jpg" alt="profile-image" class="profile" />*@
+
+                <a class="btn btn-primary" asp-area="" asp-page="/Search">Buy A House</a>
+                <p class="card-text">With over 1000 homes for sale available on the website, Dream Home can match you with a house you will want to call home.</p>
+                <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4" >
+        <div class="card" style="width:100%">
+            <h2 class="text-center" style="color:deeppink">
+                Lucky Draw!!<br />
+                Register today to get Special Discount!!
+            </h2>
+
+
+
+            <form action="/post" class="text-center" style="padding-bottom:65px">
+                <label for="fname">First name</label><br>
+                <input type="text" id="fname" name="fname" value=""><br>
+                <label for="lname">Last name</label><br>
+                <input type="text" id="lname" name="lname" value=""><br><br>
+                <label for="mail">Email ID</label><br>
+                <input type="email" id="" name="mail" value=""><br><br>
+                <label for="fname">Phone Number</label><br>
+                <input type="text" id="fname" name="fname" value=""><br>
+                <button class="btn-group-toggle" type="button" >Submit</button>
+            </form>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col">
+            <h4>Statistics</h4>
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Total Apartments
+                    <span class="badge badge-primary badge-pill">@Model.TotalApartments</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Apartments Booked Today
+                    <span class="badge badge-primary badge-pill">@Model.TransactionsToday</span>
+                </li>
+
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Average Booking Amount
+                    <span class="badge badge-primary badge-pill">@Model.AverageBookingAmount</span>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+

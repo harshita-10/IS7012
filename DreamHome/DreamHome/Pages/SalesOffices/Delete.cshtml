@@ -1,0 +1,34 @@
+﻿@page
+@model DreamHome.Pages.SalesOffices.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete Sales Office</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SalesOffice</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SalesOffice.OfficeName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SalesOffice.OfficeName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SalesOffice.SalesDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SalesOffice.SalesDate)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="SalesOffice.SalesOfficeId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

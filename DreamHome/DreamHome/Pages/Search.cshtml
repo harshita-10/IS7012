@@ -1,0 +1,89 @@
+﻿@page
+@model DreamHome.Pages.Apartments.SearchModel
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h1>Search Apartment by Name</h1>
+
+<div class="row">
+    <div class="col">
+        <form action="" method="get" class="form-inline">
+            <input asp-for="Query" class="form-control mr-sm-2 mb-2" placeholder="Search Apartmnet Name..." />
+            <button type="submit" class="btn btn-primary mb-2">Search</button>
+        </form>
+    </div>
+</div>
+
+
+@if (Model.SearchCompleted)
+{
+    if (Model.Apartment.Any())
+    {
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment[0].ApartmentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment[0].Availability)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment[0].MarketPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment[0].FloorNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment[0].BookingAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment[0].AvailabilityDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Apartment)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApartmentName)
+                </td>
+                <td>
+                   @Html.DisplayFor(modelItem => item.Availability)
+                </td>
+                <td>
+                   @Html.DisplayFor(modelItem => item.MarketPrice)
+                </td>
+                <td>
+                   @Html.DisplayFor(modelItem => item.FloorNumber)
+                </td>
+                <td>
+                   @Html.DisplayFor(modelItem => item.BookingAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvailabilityDate)
+                </td>
+                <td>
+       
+                  <a asp-page="./Details" asp-route-id="@item.ApartmentId">Buy</a> 
+        
+                </td>
+            </tr>}
+    </tbody>
+</table> }
+                else
+                {
+                <div class="row">
+                 <div class="col">
+                   <div class="alert alert-info">
+                        No results match your term <strong>@Model.Query</strong>
+                   </div>
+                 </div>
+                </div>}
+                }
+
+

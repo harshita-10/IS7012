@@ -1,0 +1,72 @@
+﻿@page
+@model DreamHome.Pages.SearchHomeModel
+
+@{
+    ViewData["Title"] = "SearchHome";
+}
+
+<h1>Find Your New Home Here</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment[0].ApartmentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment[0].Availability)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment[0].MarketPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment[0].FloorNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment[0].BookingAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment[0].AvailabilityDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment[0].Agent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment[0].City)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Apartment) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApartmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Availability)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarketPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FloorNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailabilityDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Agent.AgentFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City.CityName)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

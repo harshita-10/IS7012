@@ -1,0 +1,71 @@
+﻿@page
+@model DreamHome.Pages.Apartments.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Aparment</h1>
+
+<h4>Apartment Information</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Apartment.ApartmentId" />
+            <div class="form-group">
+                <label asp-for="Apartment.ApartmentName" class="control-label"></label>
+                <input asp-for="Apartment.ApartmentName" class="form-control" />
+                <span asp-validation-for="Apartment.ApartmentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apartment.Availability" class="control-label"></label>
+                <input asp-for="Apartment.Availability" class="form-control" />
+                @Html.DisplayNameFor(model => model.Apartment.Availability)
+                <span asp-validation-for="Apartment.Availability" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apartment.MarketPrice" class="control-label"></label>
+                <input asp-for="Apartment.MarketPrice" class="form-control" />
+                <span asp-validation-for="Apartment.MarketPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apartment.FloorNumber" class="control-label"></label>
+                <input asp-for="Apartment.FloorNumber" class="form-control" />
+                <span asp-validation-for="Apartment.FloorNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apartment.BookingAmount" class="control-label"></label>
+                <input asp-for="Apartment.BookingAmount" class="form-control" />
+                <span asp-validation-for="Apartment.BookingAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apartment.AvailabilityDate" class="control-label"></label>
+                <input asp-for="Apartment.AvailabilityDate" class="form-control" />
+                <span asp-validation-for="Apartment.AvailabilityDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apartment.AgentId" class="control-label"></label>
+                <select asp-for="Apartment.AgentId" class="form-control" asp-items="ViewBag.AgentId"></select>
+                <span asp-validation-for="Apartment.AgentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apartment.CityId" class="control-label"></label>
+                <select asp-for="Apartment.CityId" class="form-control" asp-items="ViewBag.CityId"></select>
+                <span asp-validation-for="Apartment.CityId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

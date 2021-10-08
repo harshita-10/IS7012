@@ -1,0 +1,62 @@
+﻿@page
+@model DreamHome.Pages.SalesOffices.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details of @Model.SalesOffice.OfficeName Office</h1>
+
+<div>
+    <h4>Sales Office</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SalesOffice.OfficeName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SalesOffice.OfficeName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SalesOffice.SalesDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SalesOffice.SalesDate)
+        </dd>
+    </dl>
+</div>
+@if (Model.SalesOffice.Agents.Any() == false)
+{
+    <div class="alert alert-info">No Apartments have been created. <a asp-page="/Apartments/create">Create Apartments</a></div> }
+else
+{
+    <h4>Agent Informtion</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.SalesOffice.Agents[0].FullName)</th>
+                <th>@Html.DisplayNameFor(model => model.SalesOffice.Agents[0].AgentPhoneNumber)</th>
+                <th>@Html.DisplayNameFor(model => model.SalesOffice.Agents[0].BrokerageCost)</th>
+
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.SalesOffice.Agents)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.AgentPhoneNumber)</td>
+                    <td>@Html.DisplayFor(modelItem => item.BrokerageCost)</td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.SalesOffice.SalesOfficeId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
